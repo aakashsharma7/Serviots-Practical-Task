@@ -1,56 +1,67 @@
-# Pet Adoption Management System
+# Pet Adoption Management System (MERN)
 
-A full-stack MERN application for managing pet adoptions with a premium dark-themed UI.
+A full-stack, responsive web application connecting loving families with pets in need of a home. Built completely on the MERN stack featuring role-based dashboards, secure authentication, modern UI micro-interactions, and high-performance database queries.
 
-## Features
+## 🚀 Features
 
-- **Visitor**: Browse and filter pets, view individual pet details.
-- **User**: Register, login, apply for pet adoptions, track application status.
-- **Admin**: Full pet management (create, read, update, delete) including photo uploads. Manage incoming adoption applications (approve/reject). Application approval automatically updates pet statuses and declines competing applications.
+### 👤 For Visitors & Adopters
+- **Browse & Filter**: View all available pets and filter them instantly by species, size, and status.
+- **Search System**: Find specific pets by looking up their exact name or breed.
+- **Detailed Profiles**: View photos, descriptions, medical history (vaccinated/neutered), and traits for each animal.
+- **Secure Authentication**: Register and log in using JWT-secured endpoints.
+- **Adoption Applications**: Submit a personalized adoption application for your favorite available pet.
+- **User Dashboard**: Track the real-time status of all your adoption applications (Pending, Approved, Rejected) and read direct feedback notes left by administrators.
 
-## Tech Stack
+### 🛡️ For Administrators
+- **Admin Dashboard**: Gain a bird's-eye view over all incoming applications across the platform.
+- **Application Processing**: Approve or reject user applications. Approving an application will dynamically switch the Pet's status to "Adopted" and instantly decline all other competing applications for that same pet.
+- **Pet Management (CRUD)**: Create new pet profiles, upload their photos, update medical records/status, or remove them securely from the database.
 
-- **Frontend**: React (Vite), React Router v6, Axios, Tailwind CSS v4.
-- **Backend**: Node.js, Express, MongoDB (Mongoose), JWT Auth, Multer (Photo Uploads).
+## 🛠️ Technology Stack
 
-## Prerequisites
-- Node.js (v18+)
-- Local MongoDB instance running on `mongodb://localhost:27017` or change `MONGO_URI` in `backend/.env` to a cloud DB.
+**Frontend**
+- **React (Vite ⚡)**: Lightning-fast frontend tooling and lazy-loaded component rendering (`React.lazy`).
+- **Tailwind CSS**: Utility-first framework powering the premium dark-mode aesthetic and custom CSS micro-animations.
+- **React Router v6**: Dynamic client-side routing, protected layout boundaries, and Admin-only routes.
+- **Axios**: Promised-based HTTP client handling strict interceptors and authorization headers.
 
-## Getting Started
+**Backend**
+- **Node.js & Express**: Secure, scalable REST API architecture built on MVC principles.
+- **MongoDB & Mongoose**: NoSQL document database highly optimized with `.lean()` queries for blazing-fast data serialization.
+- **JWT (JSON Web Tokens)**: Stateless and secure user authorization and password hashing (`bcryptjs`).
+- **Multer**: Multipart/form-data middleware handling seamless image uploads.
 
-### 1. Setup Backend
+## ⚙️ Local Development Setup
 
+### Prerequisites
+- Node.js (v18 or higher)
+- MongoDB Cluster URL
+
+### Installation
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/aakashsharma7/Serviots-Practical-Task.git
+cd Serviots-Practical-Task
+```
+
+2. **Backend Setup**
 ```bash
 cd backend
 npm install
+# Create a .env file based on backend/.env.example
+npm run seed  # Safely seed the database with admin accounts and 20 sample pets
+npm run dev   # Start the Express server (defaults to port 5000)
 ```
 
-Configure your `.env` based on `.env.example` in `backend/.env`. (Default is already set).
-
-Seed the database with sample pets and users:
-```bash
-npm run seed
-```
-
-Start the backend server:
-```bash
-npm run dev
-```
-Backend will run on `http://localhost:5000`.
-
-### 2. Setup Frontend
-
-Open a new terminal.
-
+3. **Frontend Setup**
+Open a new terminal window:
 ```bash
 cd frontend
 npm install
-npm run dev
+npm run dev   # Start the React Vite server (defaults to port 5173)
 ```
-Frontend will run on `http://localhost:5173`. Proxies API requests automatically to `localhost:5000`.
 
-## Seeded User Accounts
-If you ran the seed script, you can log in immediately with:
-- **Admin**: `admin@petadopt.com` / `admin123`
-- **User**: `user@petadopt.com` / `user1234`
+## 🔑 Default Accounts (from Seeder)
+- **Admin Account**: `admin@petadopt.com` | Password: `admin123`
+- **User Account**: `user@petadopt.com` | Password: `user1234`

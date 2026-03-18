@@ -61,7 +61,3 @@ cd frontend
 npm install
 npm run dev   # Start the React Vite server (defaults to port 5173)
 ```
-
-## 🔑 Default Accounts (from Seeder)
-- **Admin Account**: `admin@petadopt.com` | Password: `admin123`
-- **User Account**: `user@petadopt.com` | Password: `user1234`

@@ -19,7 +19,8 @@ const app = express();
 const allowedOrigins = [
   'http://localhost:5173',
   'http://127.0.0.1:5173',
-  process.env.CLIENT_URL
+  process.env.CLIENT_URL,
+  'https://serviots-task-xyz.vercel.app'
 ].filter(Boolean);
 
 app.use(cors({
@@ -29,7 +30,8 @@ app.use(cors({
     if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));
+      console.warn('CORS Blocked for origin:', origin);
+      callback(null, false); // Return false instead of Error to avoid 500s
     }
   },
   credentials: true,

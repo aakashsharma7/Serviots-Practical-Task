@@ -24,15 +24,9 @@ const allowedOrigins = [
 ].filter(Boolean);
 
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin) return callback(null, true); // Allow non-browser requests
-
-    if (allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      console.warn('CORS Blocked for origin:', origin);
-      callback(null, false); // Return false instead of Error to avoid 500s
-    }
+  origin: function(origin, callback) {
+    // Dynamically allow the requesting origin to ensure it always matches for credentials: true
+    callback(null, origin || true);
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
